@@ -1,16 +1,22 @@
 ﻿using System;
 
-Console.WriteLine("Welcome to the Enthusiastic Moose Simulator!");
-Console.WriteLine("--------------------------------------------");
+Main();
+
+void Main()
+{
+    Console.WriteLine("Welcome to the Enthusiastic Moose Simulator!");
+    Console.WriteLine("--------------------------------------------");
 
 
-MooseSays("You seem really cool!");
-MooseSays("Would you like to be friends?");
+    MooseSays("You seem really cool!");
+    MooseSays("Would you like to be friends?");
 
-CanadaQuestion();
-EnthusiasticQuestion();
-LoveCSharpQuestion();
-SecretQuestion();
+    CanadaQuestion();
+    EnthusiasticQuestion();
+    LoveCSharpQuestion();
+    SecretQuestion();
+}
+
 
 void CanadaQuestion()
 {
