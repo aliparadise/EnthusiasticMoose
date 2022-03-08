@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 Main();
 
@@ -9,64 +10,59 @@ void Main()
 
 
     MooseSays("You seem really cool!");
-    MooseSays("Would you like to be friends?");
+    MooseSays("I hope we can be friends");
 
-    CanadaQuestion();
-    EnthusiasticQuestion();
-    LoveCSharpQuestion();
-    SecretQuestion();
-}
-
-
-void CanadaQuestion()
+var CanadaQuestion = new List<string>()
 {
-    bool isTrue = MooseAsks("Is Canada real?");
+    "Is Canada real?",
+    "Really? It seems very unlikely.",
+    "I  K N E W  I T !!!",
+};
+
+var EnthusiasticQuestion = new List<string>()
+{
+    "Are you enthusiastic?",
+    "Yay!",
+    "You should try it!",
+};
+
+var LoveCSharpQuestion = new List<string>()
+{
+    "Do you love C# yet?",
+    "Good job sucking up to your instructor!",
+    "You will...oh, yes, you will...",
+};
+
+var SecretQuestion = new List<string>()
+{
+    "Do you want to know a secret?",
+    "ME TOO!!!! I love secrets...tell me one!",
+    "Oh, no...secrets are the best, I love to share them!",
+};
+
+AskQuestion(CanadaQuestion[0], CanadaQuestion[1], CanadaQuestion[2]);
+AskQuestion(EnthusiasticQuestion[0], EnthusiasticQuestion[1], EnthusiasticQuestion[2]);
+AskQuestion(LoveCSharpQuestion[0], LoveCSharpQuestion[1], LoveCSharpQuestion[2]);
+AskQuestion(SecretQuestion[0], SecretQuestion[1], SecretQuestion[2]);
+
+    List<List<string>> questions = new List<List<string>>
+    {
+        CanadaQuestion,
+        EnthusiasticQuestion,
+        LoveCSharpQuestion,
+        SecretQuestion,
+    };
+
+void AskQuestion(string eachQuestion, string yesAnswer, string noAnswer)
+{
+    bool isTrue = MooseAsks(eachQuestion);
     if (isTrue)
     {
-        MooseSays("Really? It seems very unlikely.");
+        MooseSays(yesAnswer);
     }
     else
     {
-        MooseSays("I  K N E W  I T !!!");
-    }
-}
-
-void EnthusiasticQuestion()
-{
-    bool isEnthusiastic = MooseAsks("Are you enthusiastic?");
-    if (isEnthusiastic)
-    {
-        MooseSays("Yay!");
-    }
-    else
-    {
-        MooseSays("You should try it!");
-    }
-}
-
-void LoveCSharpQuestion()
-{
-    bool doesLoveCSharp = MooseAsks("Do you love C# yet?");
-    if (doesLoveCSharp)
-    {
-        MooseSays("Good job sucking up to your instructor!");
-    }
-    else
-    {
-        MooseSays("You will...oh, yes, you will...");
-    }
-}
-
-void SecretQuestion()
-{
-    bool wantsSecret = MooseAsks("Do you want to know a secret?");
-    if (wantsSecret)
-    {
-        MooseSays("ME TOO!!!! I love secrets...tell me one!");
-    }
-    else
-    {
-        MooseSays("Oh, no...secrets are the best, I love to share them!");
+        MooseSays(noAnswer);
     }
 }
 
@@ -122,4 +118,5 @@ void MooseSays(string message)
                       \ \'._  ` '_.'
                        `^^` `^^^`
     ");
+}
 }
